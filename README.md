@@ -36,7 +36,7 @@
 *   Python 3.8+
 *   PyQt5
 *   CAEN HV Wrapper Library (`C/C++`)
-*   CAEN HV Wrapper Python Binding Library (`https://github.com/caenspa/py-caen-libs`)
+*   CAEN HV Wrapper Python Binding Library (`caen_libs`:`https://github.com/caenspa/py-caen-libs`)
 *   MariaDB Connector/Python (`mariadb`)
 
 ## 설치 및 실행
@@ -45,7 +45,7 @@
     ```bash
     pip install PyQt5 mariadb
     ```
-    (`caen_libs`는 CAEN에서 제공하는 설치 절차를 따르십시오.)
+    (`HV C Wrapper` 및 `caen_libs`는 CAEN에서 제공하는 설치 절차를 따르십시오.)
 
 2.  **구성:**
     `config.json` 파일을 생성하고 실제 환경에 맞게 CAEN 및 MariaDB 접속 정보를 수정합니다.
