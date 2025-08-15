@@ -103,3 +103,32 @@
   <text x="560" y="360" class="text" text-anchor="start">Batch Insert</text>
 
 </svg>
+```
+
+## 요구 사항
+
+*   Python 3.8+
+*   PyQt5
+*   CAEN HV Wrapper Library (`C/C++`)
+*   CAEN HV Wrapper Python Binding Library (`https://github.com/caenspa/py-caen-libs`)
+*   MariaDB Connector/Python (`mariadb`)
+
+## 설치 및 실행
+
+1.  **의존성 설치:**
+    ```bash
+    pip install PyQt5 mariadb
+    ```
+    (`caen_libs`는 CAEN에서 제공하는 설치 절차를 따르십시오.)
+
+2.  **구성:**
+    `config.json` 파일을 생성하고 실제 환경에 맞게 CAEN 및 MariaDB 접속 정보를 수정합니다.
+
+3.  **좌표 설정:**
+    `RENE_HV.py` 파일 내부의 `LABEL_POSITIONS` 딕셔너리가 사용자의 `DISPLAY_MAP` 설정 및 배경 이미지(`RENE_VETO_FOR_HV4.png`)와 일치하는지 확인합니다.
+
+4.  **실행:**
+    ```bash
+    python RENE_HV.py
+    ```
+```
