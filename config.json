@@ -1,0 +1,24 @@
+{
+    "CAEN_HV": {
+        "SystemType": "SY4527",
+        "LinkType": "TCPIP",
+        "IPAddress": "192.168.0.39",
+        "Username": "admin",
+        "Password": "admin"
+    },
+    "MariaDB": {
+        "Host": "localhost",
+        "Port": 3306,
+        "User": "SCM_HV_ADMIN",
+        "Password": "",
+        "Database": "SCM_HV",
+        "PoolName": "hv_optimized_pool",
+        "PoolSize": 5,
+        "UnixSocket": "/home/mariadb_data/mysql/mysql.sock"
+    },
+    "Settings": {
+        "PollingInterval_ms": 1000,
+        "DBCommitInterval_ms": 60000,
+        "BackgroundImage": "RENE_VETO_FOR_HV4.png"
+    }
+}
