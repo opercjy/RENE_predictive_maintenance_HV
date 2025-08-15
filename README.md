@@ -28,82 +28,8 @@
 
 데이터 수집 및 DB 작업은 워커 스레드에서 처리되며, GUI는 메인 스레드에서 안전하게 업데이트됩니다.
 
-```svg
-<svg width="700" height="450" viewBox="0 0 700 450" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .boundary { fill: none; stroke: #333; stroke-width: 2; stroke-dasharray: 5,5; }
-    .box { fill: #E3F2FD; stroke: #2196F3; stroke-width: 2; }
-    .db { fill: #E8F5E9; stroke: #4CAF50; stroke-width: 2; }
-    .hw { fill: #FFF3E0; stroke: #FF9800; stroke-width: 2; }
-    .text { font-family: Arial, sans-serif; font-size: 14px; }
-    .title { font-size: 16px; font-weight: bold; }
-    .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
-  </style>
+<img width="699" height="449" alt="image" src="https://github.com/user-attachments/assets/b1138ba4-b6e6-43ad-8630-f44842cc60bc" />
 
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-    </marker>
-  </defs>
-
-  <!-- Boundaries -->
-  <rect x="10" y="10" width="330" height="430" class="boundary" />
-  <text x="20" y="30" class="title">Main Thread (GUI)</text>
-
-  <rect x="360" y="10" width="330" height="430" class="boundary" />
-  <text x="370" y="30" class="title">Worker Thread (I/O)</text>
-
-  <!-- Main Thread Components -->
-  <rect x="30" y="50" width="290" height="60" class="box" />
-  <text x="175" y="85" class="text" text-anchor="middle">HVMonitor (QMainWindow)</text>
-
-  <rect x="30" y="180" width="290" height="60" class="box" />
-  <text x="175" y="215" class="text" text-anchor="middle">update_gui_from_data() Slot</text>
-
-  <rect x="30" y="320" width="290" height="60" class="box" />
-  <text x="175" y="355" class="text" text-anchor="middle">PyQt5 GUI Rendering</text>
-
-  <!-- Worker Thread Components -->
-  <rect x="380" y="50" width="290" height="60" class="box" />
-  <text x="525" y="85" class="text" text-anchor="middle">DataWorker (QObject)</text>
-
-  <rect x="380" y="130" width="290" height="60" class="box" />
-  <text x="525" y="165" class="text" text-anchor="middle">poll_data() - 1s Timer</text>
-
-  <rect x="380" y="210" width="290" height="60" class="box" />
-  <text x="525" y="245" class="text" text-anchor="middle">fetch_data_bulk_optimized()</text>
-  
-  <rect x="380" y="290" width="290" height="60" class="box" />
-  <text x="525" y="325" class="text" text-anchor="middle">commit_to_db() - 60s Timer</text>
-
-  <!-- External Components -->
-  <rect x="500" y="370" width="170" height="50" class="db" />
-  <text x="585" y="400" class="text" text-anchor="middle">MariaDB</text>
-
-  <rect x="380" y="370" width="100" height="50" class="hw" />
-  <text x="430" y="400" class="text" text-anchor="middle">CAEN HV</text>
-
-  <!-- Arrows and Interactions -->
-  <path d="M 340 85 L 360 85" class="arrow" />
-  <text x="350" y="70" class="text" text-anchor="middle">Starts</text>
-
-  <!-- Signal/Slot Connection (Simplified representation) -->
-  <path d="M 360 160 L 340 200" class="arrow" stroke-dasharray="5,3" />
-  <text x="300" y="170" class="text" text-anchor="end">data_fetched Signal</text>
-
-  <path d="M 175 240 L 175 320" class="arrow" />
-  <text x="180" y="280" class="text">Updates UI</text>
-
-  <path d="M 525 190 L 525 210" class="arrow" />
-
-  <path d="M 430 370 L 430 270" class="arrow" />
-  <text x="435" y="320" class="text">Bulk Read</text>
-
-  <path d="M 525 350 L 585 370" class="arrow" />
-  <text x="560" y="360" class="text" text-anchor="start">Batch Insert</text>
-
-</svg>
-```
 
 ## 요구 사항
 
