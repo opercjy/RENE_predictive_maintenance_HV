@@ -100,7 +100,7 @@ try:
         print("\n--- Imon 데이터 시각화 및 저장 시작 ---")
         plot_channels_by_slot(df_filtered, 'Imon', CRATE_MAP)
         
-        print("\n✨ 모든 그래프 파일 생성이 완료되었습니다.")
+        print("\n 모든 그래프 파일 생성이 완료되었습니다.")
 
 except FileNotFoundError:
     print(f"오류: '{file_path}' 파일을 찾을 수 없습니다. 경로를 확인해주세요.")
