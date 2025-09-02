@@ -67,15 +67,16 @@ FROM SCM_HV.HV_DATA
 INTO OUTFILE 'HV_DATA_250902_selected_with_slot.csv'
 FIELDS TERMINATED BY ',' ENCLOSED BY '"';
 ```
+
 ```bash
-python plot_hv_db.py
-```
-```txt
 MariaDB [(none)]> SELECT datetime, slot, channel, vmon, imon
     -> FROM SCM_HV.HV_DATA
     -> INTO OUTFILE 'HV_DATA_250902_selected_with_slot.csv'
     -> FIELDS TERMINATED BY ',' ENCLOSED BY '"';
 eQuery OK, 156822048 rows affected, 1 warning (1 min 13.527 sec)
 MariaDB [(none)]> exit;
+```
+```bash
+python plot_hv_db.py
 ```
 
