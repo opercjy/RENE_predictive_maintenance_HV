@@ -60,7 +60,22 @@
 ## 현장 실행 예
 <img width="766" height="450" alt="image" src="https://github.com/user-attachments/assets/5883be94-1b4c-4848-a32c-3170ef500c1a" /><img width="673" height="409" alt="image" src="https://github.com/user-attachments/assets/df18444d-5f28-4d33-a519-a7c723bca37a" /><img width="676" height="382" alt="image" src="https://github.com/user-attachments/assets/166fd673-06a1-4f73-8ae9-59ad45af9ca0" /><img width="680" height="392" alt="image" src="https://github.com/user-attachments/assets/d2ea5b89-b127-4170-8471-062385c61c60" /><img width="673" height="393" alt="image" src="https://github.com/user-attachments/assets/3a3d4af9-d7d7-414e-a7f0-34550efffd0f" />
 
-
-
-
+## 데이터 베이스 추출 및 시각화 
+```mysql
+SELECT datetime, slot, channel, vmon, imon
+FROM SCM_HV.HV_DATA
+INTO OUTFILE 'HV_DATA_250902_selected_with_slot.csv'
+FIELDS TERMINATED BY ',' ENCLOSED BY '"';
+```
+```bash
+python plot_hv_db.py
+```
+```txt
+MariaDB [(none)]> SELECT datetime, slot, channel, vmon, imon
+    -> FROM SCM_HV.HV_DATA
+    -> INTO OUTFILE 'HV_DATA_250902_selected_with_slot.csv'
+    -> FIELDS TERMINATED BY ',' ENCLOSED BY '"';
+eQuery OK, 156822048 rows affected, 1 warning (1 min 13.527 sec)
+MariaDB [(none)]> exit;
+```
 
